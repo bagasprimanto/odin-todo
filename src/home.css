@@ -1,0 +1,4 @@
+img {
+    max-width: max(400px, 50%);
+    height: auto;
+}

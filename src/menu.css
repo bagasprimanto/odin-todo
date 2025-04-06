@@ -1,0 +1,9 @@
+img {
+    max-width: max(400px, 50%);
+    height: auto;
+}
+
+.item .top {
+    display: flex;
+    gap: 16px;
+}
