@@ -1,24 +1,155 @@
-function createTask(project, title, description = "", dueDate, priority = "Low", notes = "", checklist = false) {
-    const project = () => project;
-    const getTitle = () => title;
-    const getDescription = () => description;
-    const getDueDate = () => dueDate;
-    const getPriority = () => priority;
-    const getNotes = () => notes;
-    const getChecklist = () => checklist;
+class Task {
 
-    const toggleChecklist = () => checklist = checklist ? false : true;
+    #taskId;
+    #title;
+    #description;
+    #projectId;
+    #checklist = false;
 
-    return { getTitle, getDescription, getDueDate, getPriority, getNotes, getChecklist, toggleChecklist };
+    constructor(taskId, title, description, projectId) {
+        this.#taskId = taskId;
+        this.#title = title;
+        this.#description = description;
+        this.#projectId = projectId;
+    }
+
+    get taskId() {
+        return this.#taskId;
+    }
+
+    get title() {
+        return this.#title;
+    }
+
+    set title(title) {
+        this.#title = title;
+    }
+
+    get description() {
+        return this.#description;
+    }
+
+    set description(description) {
+        this.#description = description;
+    }
+
+    get projectId() {
+        return this.#projectId;
+    }
+
+    set projectId(projectId) {
+        this.#projectId = projectId;
+    }
+
+    toggleChecklist() {
+        this.#checklist = this.#checklist ? false : true;
+    }
 }
 
-function createProject(title) {
-    const tasks = {};
+class Project {
 
-    const getTitle = () => title;
-    const getTasks = () => tasks;
+    #projectId;
+    #title;
+    #tasks = {};
 
-    const addTask = (task) => tasks[task.getTitle()] = task;
+    constructor(projectId, title) {
+        this.#projectId = projectId;
+        this.#title = title;
+    }
 
-    return { getTitle, getTasks, addTask };
+    get projectId() {
+        return this.#projectId;
+    }
+
+    get title() {
+        return this.#title;
+    }
+
+    set title(title) {
+        this.#title = title;
+    }
+
+    get tasks() {
+        return this.#tasks;
+    }
+
+    getTask(taskId) {
+        return this.tasks[taskId];
+    }
+
+    addTask(task) {
+        this.#tasks[task.taskId] = task;
+    }
+}
+
+class TaskManager {
+
+    #projectIdToAssign = 0;
+    #taskIdToAssign = 0;
+
+    #projects = {};
+    #tasks = {};
+
+    get projectIdToAssign() {
+        return this.#taskIdToAssign;
+    }
+
+    #incrementProjectIdToAssign() {
+        this.#projectIdToAssign++;
+    }
+
+    get taskIdToAssign() {
+        return this.#taskIdToAssign;
+    }
+
+    #incrementTaskIdToAssign() {
+        this.#taskIdToAssign++;
+    }
+
+    get projects() {
+        return this.#projects;
+    }
+
+    getProject(projectId) {
+        return this.projects[projectId];
+    }
+
+    createProject(title) {
+        this.projects[this.#projectIdToAssign] = new Project(this.#projectIdToAssign, title);
+        this.#incrementProjectIdToAssign();
+    }
+
+    deleteProject(projectId) {
+        if (this.projects[projectId].tasks.length > 0) {
+            // delete tasks
+        }
+
+        delete this.projects[projectId]
+
+    }
+
+    get tasks() {
+        return this.#tasks;
+    }
+
+    createTask(title, description = "", projectId) {
+        const newTask = new Task(this.#taskIdToAssign, title, description, projectId);
+        this.#tasks[this.#taskIdToAssign] = newTask;
+        this.#incrementTaskIdToAssign();
+        this.addTaskToProject(newTask, projectId);
+    }
+
+    getTask(taskId) {
+        return this.tasks[taskId];
+    }
+
+    deleteTask(taskId) {
+        const taskProjectId = this.tasks[taskId].projectId;
+        delete this.projects[taskProjectId].tasks[taskId];
+        delete this.tasks[taskId];
+    }
+
+    addTaskToProject(task, projectId) {
+        this.projects[projectId].addTask(task);
+    }
 }
