@@ -54,11 +54,15 @@ class Task {
     }
 
     get priority() {
-        return this.#dueDate;
+        return this.#priority;
     }
 
     set priority(priority) {
         this.#priority = priority;
+    }
+
+    get checklist() {
+        return this.#checklist;
     }
 
     toggleChecklist() {
