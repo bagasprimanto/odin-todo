@@ -4,17 +4,29 @@ class Task {
     #title;
     #description;
     #projectId;
+    #dueDate;
+    #priority;
     #checklist = false;
 
-    constructor(taskId, title, description, projectId) {
+    constructor(taskId, projectId, title, description, dueDate, priority) {
         this.#taskId = taskId;
+        this.#projectId = projectId;
         this.#title = title;
         this.#description = description;
-        this.#projectId = projectId;
+        this.#dueDate = dueDate;
+        this.#priority = priority;
     }
 
     get taskId() {
         return this.#taskId;
+    }
+
+    get projectId() {
+        return this.#projectId;
+    }
+
+    set projectId(projectId) {
+        this.#projectId = projectId;
     }
 
     get title() {
@@ -33,12 +45,20 @@ class Task {
         this.#description = description;
     }
 
-    get projectId() {
-        return this.#projectId;
+    get dueDate() {
+        return this.#dueDate;
     }
 
-    set projectId(projectId) {
-        this.#projectId = projectId;
+    set dueDate(dueDate) {
+        this.#dueDate = dueDate;
+    }
+
+    get priority() {
+        return this.#dueDate;
+    }
+
+    set priority(priority) {
+        this.#priority = priority;
     }
 
     toggleChecklist() {
@@ -135,8 +155,8 @@ class TaskManager {
         return this.#tasks;
     }
 
-    createTask(title, description = "", projectId) {
-        const newTask = new Task(this.#taskIdToAssign, title, description, projectId);
+    createTask(projectId, title, description = "", dueDate = null, priority = null) {
+        const newTask = new Task(this.#taskIdToAssign, projectId, title, description, dueDate, priority);
         this.#tasks[this.#taskIdToAssign] = newTask;
         this.#incrementTaskIdToAssign();
         this.#addTaskToProject(newTask, projectId);
