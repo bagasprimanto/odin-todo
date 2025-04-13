@@ -120,12 +120,15 @@ class TaskManager {
     }
 
     deleteProject(projectId) {
-        if (this.projects[projectId].tasks.length > 0) {
-            // delete tasks
+        const projectToDelete = this.projects[projectId];
+
+        if (projectToDelete.tasks.length > 0) {
+            Object.keys(projectToDelete.tasks).forEach(taskId => delete projectToDelete[taskId]);
         }
 
-        delete this.projects[projectId]
+        delete projectToDelete.tasks;
 
+        delete this.projects[projectId];
     }
 
     get tasks() {
