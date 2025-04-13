@@ -139,7 +139,11 @@ class TaskManager {
         const newTask = new Task(this.#taskIdToAssign, title, description, projectId);
         this.#tasks[this.#taskIdToAssign] = newTask;
         this.#incrementTaskIdToAssign();
-        this.addTaskToProject(newTask, projectId);
+        this.#addTaskToProject(newTask, projectId);
+    }
+
+    #addTaskToProject(task, projectId) {
+        this.projects[projectId].addTask(task);
     }
 
     getTask(taskId) {
@@ -150,9 +154,5 @@ class TaskManager {
         const taskProjectId = this.tasks[taskId].projectId;
         delete this.projects[taskProjectId].tasks[taskId];
         delete this.tasks[taskId];
-    }
-
-    addTaskToProject(task, projectId) {
-        this.projects[projectId].addTask(task);
     }
 }
