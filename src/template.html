@@ -5,22 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav class="sidebar">
+        <h1>The Todo List!</h1>
         <button type="button" class="btn action">Add a task</button>
-        <button type="button" class="btn nav-today">Today</button>
-        <button type="button" class="btn nav-upcoming">Upcoming</button>
-        <button type="button" class="btn nav-overdue">Overdue</button>
-        <button type="button" class="btn nav-menu">Completed</button>
         <div>
             <h3>Projects</h3>
             <button type="button" class="btn action">Add a project</button>
         </div>
-        <button type="button" class="btn nav-menu">Home 🏡</button>
+        <ul>
+            <li>Home 🏡 <button type="button" class="btn delete">Delete</button></li>
+        </ul>
     </nav>
     <div id="content">
+        <h2>Home 🏡</h2>
+        <button type="button" class="btn action">Add a task</button>
+        <button type="button" class="btn delete">Delete Project</button>
+        <ul>
+            <li>
+                <h3>Trim the lawn</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
+                    distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque,
+                    eos harum sapiente!</p>
+                <div>
+                    <div>High</div>
+                    <div>Due: 20 April 2025</div>
+                </div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </li>
+            <li>
+                <h3>Get the groceries from Hero</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
+                    distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque,
+                    eos harum sapiente!</p>
+                <div>
+                    <div>Low</div>
+                    <div>Due: 21 April 2025</div>
+                </div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </li>
+            <li>
+                <h3>Practice guitar</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
+                    distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque,
+                    eos harum sapiente!</p>
+                <div>
+                    <div>Low</div>
+                    <div>Due: 20 April 2025</div>
+                </div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </li>
+        </ul>
     </div>
     <script src="todo.js"></script>
 </body>
