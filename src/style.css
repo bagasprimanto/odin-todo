@@ -75,3 +75,63 @@ h6 {
 #__next {
     isolation: isolate;
 }
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+/* Main Layout */
+html {
+    height: 100%;
+    background-color: rgb(250, 242, 218);
+}
+
+body {
+    display: flex;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    min-width: 240px;
+    padding: 16px;
+}
+
+#content {
+    padding: 16px;
+}
+
+/* Sidebar styles */
+
+.list li {
+    margin-bottom: 16px;
+}
+
+nav.sidebar button.btn.action {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+ul.list.project li {
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul.list.project button {
+    font-weight: 400;
+}
+
+
+/* Todo List styles */
+div.content-top {
+    margin-bottom: 16px;
+}
+
+ul.list.todo li {
+    display: flex;
+    gap: 8px;
+}

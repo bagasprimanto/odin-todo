@@ -12,54 +12,72 @@
     <nav class="sidebar">
         <h1>The Todo List!</h1>
         <button type="button" class="btn action">Add a task</button>
-        <div>
-            <h3>Projects</h3>
-            <button type="button" class="btn action">Add a project</button>
-        </div>
-        <ul>
-            <li>Home 🏡 <button type="button" class="btn delete">Delete</button></li>
+        <h3>Projects</h3>
+        <button type="button" class="btn action add-project">Add a project</button>
+        <ul class="list project">
+            <li># Home 🏡 <button type="button" class="btn delete">Delete</button></li>
         </ul>
     </nav>
     <div id="content">
-        <h2>Home 🏡</h2>
-        <button type="button" class="btn action">Add a task</button>
-        <button type="button" class="btn delete">Delete Project</button>
-        <ul>
+        <div class="content-top">
+            <h2 class="project-name">Home 🏡</h2>
+            <button type="button" class="btn action">Add a task</button>
+            <button type="button" class="btn delete">Delete Project</button>
+        </div>
+        <ul class="list todo">
             <li>
-                <h3>Trim the lawn</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
-                    distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque,
-                    eos harum sapiente!</p>
-                <div>
-                    <div>High</div>
-                    <div>Due: 20 April 2025</div>
+                <div class="checklist">
+                    <input type="checkbox">
                 </div>
-                <button>Edit</button>
-                <button>Delete</button>
+                <div class="content-todo">
+                    <h3>Trim the lawn</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
+                        distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum
+                        atque,
+                        eos harum sapiente!</p>
+                    <div>
+                        <div>High</div>
+                        <div>Due: 20 April 2025</div>
+                    </div>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
             </li>
             <li>
-                <h3>Get the groceries from Hero</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
-                    distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque,
-                    eos harum sapiente!</p>
-                <div>
-                    <div>Low</div>
-                    <div>Due: 21 April 2025</div>
+                <div class="checklist">
+                    <input type="checkbox">
                 </div>
-                <button>Edit</button>
-                <button>Delete</button>
+                <div class="content-todo">
+                    <h3>Trim the lawn</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
+                        distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum
+                        atque,
+                        eos harum sapiente!</p>
+                    <div>
+                        <div>High</div>
+                        <div>Due: 20 April 2025</div>
+                    </div>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
             </li>
             <li>
-                <h3>Practice guitar</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
-                    distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque,
-                    eos harum sapiente!</p>
-                <div>
-                    <div>Low</div>
-                    <div>Due: 20 April 2025</div>
+                <div class="checklist">
+                    <input type="checkbox">
                 </div>
-                <button>Edit</button>
-                <button>Delete</button>
+                <div class="content-todo">
+                    <h3>Trim the lawn</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa
+                        distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum
+                        atque,
+                        eos harum sapiente!</p>
+                    <div>
+                        <div>High</div>
+                        <div>Due: 20 April 2025</div>
+                    </div>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
             </li>
         </ul>
     </div>
