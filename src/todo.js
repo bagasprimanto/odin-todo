@@ -270,11 +270,11 @@ export class DisplayController {
 
             const priorityDiv = document.createElement("div");
             priorityDiv.classList.add("priority");
-            priorityDiv.innerText = task.priority;
+            priorityDiv.innerText = "Priority: " + task.priority;
 
             const dueDateDiv = document.createElement("div");
             dueDateDiv.classList.add("duedate");
-            dueDateDiv.innerText = format(task.dueDate, "d MMM yyyy");
+            dueDateDiv.innerText = "Due: " + format(task.dueDate, "d MMM yyyy");
 
             const bottomDiv = document.createElement("div");
             bottomDiv.appendChild(priorityDiv);
