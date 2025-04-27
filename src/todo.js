@@ -179,17 +179,51 @@ class TaskManager {
         delete this.projects[taskProjectId].tasks[taskId];
         delete this.tasks[taskId];
     }
+
+    initializeTodos() {
+        // Create initial template project
+        this.createProject("Home 🏡");
+        const firstProject = this.#projects[0];
+
+        // Create initial todo tasks
+        this.createTask(0, "Trim the lawn", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque, eos harum sapiente!", new Date(2025, 1, 11), "High");
+        this.createTask(0, "Clean the bathroom", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque, eos harum sapiente!", new Date(2025, 1, 12), "High");
+        this.createTask(0, "Buy groceries", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nam adipisci harum hic culpa distinctio illum eos. Inventore sed recusandae laborum neque commodi nostrum, alias dolorum atque, eos harum sapiente!", new Date(2025, 1, 11), "High");
+    }
 }
 
 class DisplayController {
 
+    #listProject
+    #listTodo
+    #taskManager
+
     constructor() {
+        // Initialize UI elements
+        this.#listProject = document.querySelector("ul.list.project");
+        this.#listTodo = document.querySelector("ul.list.todo");
+
+        // Initialize EventListeners
+
+        // Initialize objects
+        this.#taskManager = new TaskManager();
+        this.#taskManager.initializeTodos();
+    }
+
+
+
+    // Display everything initially
+    initializeDisplay() {
 
     }
 
-    // Initialize Todo Project
-    // Initialize Todo Task in template Project
     // Display Project
-    // Display Todo List for a Project
+    displayProjects() {
 
+    }
+
+    // Display Todo List for a Project
+    displayTodos() {
+
+    }
 }
