@@ -1,3 +1,4 @@
+import "./style.css"
 import { format } from "date-fns";
 class Task {
 
@@ -250,12 +251,11 @@ export class DisplayController {
         this.clearTodos();
 
         for (const task of Object.values(this.#currentProject.tasks)) {
-            const taskListItem = document.createElement("li");
-
             const checkListDiv = document.createElement("div");
             checkListDiv.classList.add("checklist");
 
             const checkList = document.createElement("input");
+            checkList.type = "checkbox";
             checkList.value = task.checklist;
 
             checkListDiv.appendChild(checkList);
@@ -292,12 +292,19 @@ export class DisplayController {
             deleteButton.classList.add("delete");
             deleteButton.innerText = "Delete";
 
+            const taskListContentDiv = document.createElement("div");
+            taskListContentDiv.classList.add("content-todo");
+
+            const taskListItem = document.createElement("li");
             taskListItem.appendChild(checkListDiv);
-            taskListItem.appendChild(taskHeading);
-            taskListItem.appendChild(taskDescription);
-            taskListItem.appendChild(bottomDiv);
-            taskListItem.appendChild(editButton);
-            taskListItem.appendChild(deleteButton);
+
+            taskListContentDiv.appendChild(taskHeading);
+            taskListContentDiv.appendChild(taskDescription);
+            taskListContentDiv.appendChild(bottomDiv);
+            taskListContentDiv.appendChild(editButton);
+            taskListContentDiv.appendChild(deleteButton);
+
+            taskListItem.appendChild(taskListContentDiv);
 
             this.#listTodo.appendChild(taskListItem);
         }
