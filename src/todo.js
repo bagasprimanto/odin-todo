@@ -180,3 +180,16 @@ class TaskManager {
         delete this.tasks[taskId];
     }
 }
+
+class DisplayController {
+
+    constructor() {
+
+    }
+
+    // Initialize Todo Project
+    // Initialize Todo Task in template Project
+    // Display Project
+    // Display Todo List for a Project
+
+}
