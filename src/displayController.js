@@ -4,22 +4,54 @@ import { TaskManager } from "./taskManager";
 
 export class DisplayController {
 
+    // UI Elements
     #listProject
     #listTodo
     #headingProjectName
+    #btnAddProject
+    #dialogAddProject
+    #btnCancelAddProject
+
+    // Objects
     #taskManager
     #currentProject
 
     constructor() {
         // Initialize UI elements
-        this.#listProject = document.querySelector("ul.list.project");
-        this.#listTodo = document.querySelector("ul.list.todo");
-        this.#headingProjectName = document.querySelector("h2.project-name");
+        this.initializeUIElements();
+
         // Initialize EventListeners
+        this.initializeEventListeners();
 
         // Initialize objects
         this.#taskManager = new TaskManager();
         this.#taskManager.initializeTodos();
+    }
+
+    initializeUIElements() {
+        // Main page
+        this.#listProject = document.querySelector("ul.list.project");
+        this.#listTodo = document.querySelector("ul.list.todo");
+        this.#headingProjectName = document.querySelector("h2.project-name");
+        this.#btnAddProject = document.querySelector("button.btn.add-project");
+
+        // Add Project dialog
+        this.#dialogAddProject = document.querySelector("dialog.dialog.add-project");
+        this.#btnCancelAddProject = document.querySelector("dialog.dialog.add-project button.btn.cancel");
+    }
+
+    initializeEventListeners() {
+        this.#btnAddProject.addEventListener("click", () => {
+            this.#dialogAddProject.showModal();
+        })
+
+        this.#btnAddProject.addEventListener("click", () => {
+            this.#dialogAddProject.showModal();
+        })
+
+        this.#btnCancelAddProject.addEventListener("click", () => {
+            this.#dialogAddProject.close();
+        })
     }
 
     // Display everything initially
