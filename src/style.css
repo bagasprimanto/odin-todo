@@ -135,3 +135,32 @@ ul.list.todo li {
     display: flex;
     gap: 8px;
 }
+
+/* Dialog styles */
+dialog::backdrop {
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+dialog {
+    margin: auto;
+    padding: 32px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+dialog div.form-container {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+dialog h2 {
+    margin-bottom: 16px;
+}
+
+dialog div.form-container .form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
