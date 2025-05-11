@@ -164,3 +164,18 @@ dialog div.form-container .form-control {
     flex-direction: column;
     margin-bottom: 16px;
 }
+
+dialog input[type="text"],
+dialog input[type="number"] {
+    appearance: none;
+    border: 1px solid black;
+    background-color: rgb(246, 246, 246);
+    border-radius: 10px;
+    width: 32ch;
+    padding: 4px;
+}
+
+dialog .form-control.buttons div {
+    display: flex;
+    gap: 16px;
+}
