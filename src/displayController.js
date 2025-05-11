@@ -11,6 +11,7 @@ export class DisplayController {
     #btnAddProject
     #dialogAddProject
     #btnCancelAddProject
+    #btnSubmitAddProject
 
     // Objects
     #taskManager
@@ -38,20 +39,23 @@ export class DisplayController {
         // Add Project dialog
         this.#dialogAddProject = document.querySelector("dialog.dialog.add-project");
         this.#btnCancelAddProject = document.querySelector("dialog.dialog.add-project button.btn.cancel");
+        this.#btnSubmitAddProject = document.querySelector("didalog.dialog.add-project button.btn.submit")
     }
 
     initializeEventListeners() {
         this.#btnAddProject.addEventListener("click", () => {
             this.#dialogAddProject.showModal();
-        })
+        });
 
         this.#btnAddProject.addEventListener("click", () => {
             this.#dialogAddProject.showModal();
-        })
+        });
 
         this.#btnCancelAddProject.addEventListener("click", () => {
             this.#dialogAddProject.close();
-        })
+        });
+
+        this.#dialogAddProject.addEventListener("submit", this.submitAddProject.bind(this));
     }
 
     // Display everything initially
@@ -61,6 +65,27 @@ export class DisplayController {
         this.displayProjects();
         this.displayTodos();
     }
+
+    // Handle add project submit
+    submitAddProject(event) {
+        event.preventDefault(); // We don't want to submit this form
+
+        // Get the values of the input elements
+        const fieldTitle = document.querySelector("#project-title");
+
+        // Add project
+        this.#taskManager.createProject(fieldTitle.value);
+
+        // Clear the input fields
+        fieldTitle.value = "";
+
+        // Close dialog
+        this.#dialogAddProject.close();
+
+        // Display the project list
+        this.displayProjects();
+    }
+
 
     // Display Project
     displayProjects() {
