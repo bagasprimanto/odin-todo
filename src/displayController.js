@@ -156,6 +156,11 @@ export class DisplayController {
             deleteButton.classList.add("delete");
             deleteButton.innerText = "Delete";
 
+            const divButtons = document.createElement("div");
+            divButtons.classList.add("buttons");
+            divButtons.appendChild(editButton);
+            divButtons.appendChild(deleteButton);
+
             const taskListContentDiv = document.createElement("div");
             taskListContentDiv.classList.add("content-todo");
 
@@ -165,8 +170,7 @@ export class DisplayController {
             taskListContentDiv.appendChild(taskHeading);
             taskListContentDiv.appendChild(taskDescription);
             taskListContentDiv.appendChild(bottomDiv);
-            taskListContentDiv.appendChild(editButton);
-            taskListContentDiv.appendChild(deleteButton);
+            taskListContentDiv.appendChild(divButtons);
 
             taskListItem.appendChild(taskListContentDiv);
 

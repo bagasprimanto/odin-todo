@@ -136,6 +136,11 @@ ul.list.todo li {
     gap: 8px;
 }
 
+div.buttons {
+    display: flex;
+    gap: 8px;
+}
+
 /* Dialog styles */
 dialog::backdrop {
     background-color: #000000;
